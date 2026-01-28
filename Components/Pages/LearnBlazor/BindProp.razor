@@ -1,0 +1,21 @@
+﻿@page "/learnblazor/bindprop"
+
+<h3>BindProp - Data Binding</h3>
+
+Name: @product.Name <br>
+IsActive: @product.IsActive<br>
+Price: @product.Price <br />
+Input Price: <input type="number" @bind="@product.Price" @bind:event="oninput" /> <br />
+
+Input Price:<input type="number" @bind-value="@product.Price" @bind-value:event="oninput" /> <br />
+
+IsActive: <input type="checkbox" @bind="product.IsActive" /> <br />
+
+@code {
+    Models.Product product = new Models.Product
+    {
+        Name = "Sample Product",
+        Price = 10.56M,
+        IsActive = true
+    };
+}
