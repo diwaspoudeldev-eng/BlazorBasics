@@ -2,6 +2,7 @@
 @page "/learnrouting/{Param1:int}/{Param2}"
 @page "/learnrouting/{Param1:int}"
 @page "/learnblazor/learnrouting"
+@page "/learnrouting/catch-all/{*PageParameters}"
 
 
 <h3>learnrouting</h3>
@@ -10,6 +11,12 @@ Parameter1: @Param1
 
 Parameter2: @Param2
 
+Page Parameters: @PageParameters
+
+<div class="bg-info" style="height:1000px"></div>
+
+<h2 id="targetElement">Main Title</h2>
+
 @code {
 
     [Parameter]
@@ -17,4 +24,7 @@ Parameter2: @Param2
 
     [Parameter]
     public string Param2 { get; set; } = "";
+
+    [Parameter]
+    public string PageParameters { get; set; } = string.Empty;
 }
