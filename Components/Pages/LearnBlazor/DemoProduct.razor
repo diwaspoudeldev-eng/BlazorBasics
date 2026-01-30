@@ -1,0 +1,82 @@
+﻿@page "/learnblazor/demoproduct"
+
+<h3>DemoProduct</h3>
+<h2>Favorite Counter : @favoriteCount</h2>
+<div class="border p-2 mt-2 bg-secondary">
+    <div class="row">
+        @foreach (var prod in productList)
+        {
+            <_IndividualProduct Product="@prod" OnFavoriteUpadated="FavoriteCountChanged">
+
+            </_IndividualProduct>
+        }
+
+    </div>
+
+  
+</div>
+
+<button class="btn btn-primary" @onclick="() => IncrementCount(5)">Click me</button>
+    Counter: @counter
+
+@code {
+    List<Product> productList = new();
+    int counter = 0;
+    int favoriteCount = 0;
+    protected override void OnInitialized()
+    {
+        productList.Add(new()
+        {
+            Id = 1,
+            Name = "Midnight Blaze",
+            IsActive = false,
+            Price = 5.99M,
+            ProductLists = new List<ProductProperty>()
+                {
+                    new ProductProperty { Id = 1, Key = "Flavor", Value = "Rose"},
+                    new ProductProperty { Id = 2, Key = "Size", Value = "20oz"},
+                    new ProductProperty { Id = 3, Key = "Color", Value="Purple" }
+                }
+        });
+
+        productList.Add(new()
+        {
+            Id = 2,
+            Name = "Blossom Lily",
+            IsActive = true,
+            Price = 10.59M,
+            ProductLists = new List<ProductProperty>()
+                {
+                    new ProductProperty { Id = 1, Key = "Flavor", Value = "Lily" },
+                    new ProductProperty { Id = 2, Key = "Size", Value = "18oz" },
+                    new ProductProperty {Id = 3,Key = "Color",Value = "White"}
+                }
+        });
+    }
+
+    private void IncrementCount(int currentCount)
+    {
+        counter = counter + currentCount;
+    }
+
+    private void deleteProduct(int id)
+    {
+        var prodToDelete = productList.FirstOrDefault(p => p.Id == id);
+        if (prodToDelete != null)
+        {
+            productList.Remove(prodToDelete);
+        }
+    }
+
+    protected void FavoriteCountChanged(bool isFavorite)
+    {
+        if (isFavorite)
+        {
+            favoriteCount++;
+        }
+        else
+        {
+            favoriteCount--;
+        }
+    }
+}

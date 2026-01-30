@@ -1,0 +1,36 @@
+﻿@page "/learnblazor/parentcomponent"
+
+
+@* <_ChildComponent OnButtonClick="ShowMessage" Title="This Title is passed from Parent Component with nobody"></_ChildComponent>
+
+<p>@messageText</p>
+
+<_ChildComponent OnButtonClick="ShowMessage" Title="This Title is passed from Parent Component">
+    This is Body
+</_ChildComponent> *@
+
+<CascadingValue Value="@MessageForGrandChild">
+<_ChildComponent OnButtonClick="ShowMessage" Title="This Title is passed from Parent Component">
+    <ChildContent>Some Text between ChildContent from Parent Component</ChildContent>
+    <SomeChildContent2>
+       <p>This is more detailed content to ChildContent from Parent Component</p>
+       <ul>
+           <li>Item 1</li>
+           <li>Item 2</li>
+           <li>Item 3</li>
+        </ul>
+        </SomeChildContent2>
+</_ChildComponent>
+</CascadingValue>
+<p>@messageText</p>
+
+@code {
+
+    private string messageText = "";
+    private string MessageForGrandChild = "Hello from Parent Component to Grand Child Component";
+
+    private void ShowMessage()
+    {
+        messageText = " Button inside child component was clicked";
+    }
+}
