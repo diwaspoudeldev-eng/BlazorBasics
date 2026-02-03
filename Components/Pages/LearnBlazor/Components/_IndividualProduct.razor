@@ -9,7 +9,7 @@
 
     @if (Product.IsActive)
     {
-        @foreach (var plist in Product.ProductLists)
+        @foreach (var plist in Product.ProductProperties)
         {
             <div>@plist.Value - @plist.Key</div>
         }

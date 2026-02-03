@@ -14,7 +14,7 @@
         <br />
         Product Properties
         <select @bind="selectedProp">
-            @foreach (var prop in product.ProductLists)
+            @foreach (var prop in product.ProductProperties)
             {
                 <option value="@prop.Id">@prop.Key</option>
             }
@@ -32,7 +32,7 @@
         Selected Prop : @selectedProp
         @if (!string.IsNullOrEmpty(selectedProp))
         {
-            <p>Selected Value : @product?.ProductLists?.FirstOrDefault(u => u.Key == selectedProp)?.Value</p>
+            <p>Selected Value : @product?.ProductProperties?.FirstOrDefault(u => u.Key == selectedProp)?.Value</p>
         }
     </div>
     <div class="col-12 p-4">
@@ -72,9 +72,9 @@
     Product product = new Models.Product
     {
         Name = "Sample Product",
-        Price = 10.56M,
+        Price = 10.56,
         IsActive = true,
-        ProductLists = new List<ProductProperty>()
+        ProductProperties = new List<ProductProperty>()
     {
     new ProductProperty { Id=1,Key="Color",Value="Red" },
     new ProductProperty { Id=2,Key="Size",Value="20oz" },
@@ -90,8 +90,8 @@
             Id = 1,
             Name = "Midnight Blaze",
             IsActive = false,
-            Price = 5.99M,
-            ProductLists = new List<ProductProperty>()
+            Price = 5.99,
+            ProductProperties = new List<ProductProperty>()
                 {
                     new ProductProperty { Id = 1, Key = "Flavor", Value = "Rose"},
                     new ProductProperty { Id = 2, Key = "Size", Value = "20oz"},
@@ -104,8 +104,8 @@
             Id = 2,
             Name = "Blossom Lily",
             IsActive = true,
-            Price = 10.59M,
-            ProductLists = new List<ProductProperty>()
+            Price = 10.59,
+            ProductProperties = new List<ProductProperty>()
                 {
                     new ProductProperty { Id = 1, Key = "Flavor", Value = "Lily" },
                     new ProductProperty { Id = 2, Key = "Size", Value = "18oz" },
