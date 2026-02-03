@@ -1,3 +1,9 @@
 <Solution>
+  <Project Path="../BlazorAppSSR/BlazorAppSSRNoInteraactivity.csproj" Id="d2de7e84-c0d2-479d-b412-5e090871b4fd" />
+  <Project Path="../BlazorAppSSRInteractivityGlobal/BlazorAppSSRInteractivityGlobal.csproj" Id="ac957b9e-9549-4086-9399-71f50b56a8cb" />
+  <Project Path="../BlazorAppSSRPerComponent/BlazorAppSSRPerComponent.csproj" Id="875b2b40-3de2-4d25-945e-b11abd409a29" />
+  <Project Path="../BlazorWebAssembly/BlazorWebAssembly.Client/BlazorWebAssembly.Client.csproj" Id="8db35a98-3948-422f-a18c-829e0a614992" />
+  <Project Path="../BlazorWebAssembly/BlazorWebAssembly/BlazorWebAssembly.csproj" Id="f0a57973-42b6-4698-a324-7cf91bd1aabb" />
+  <Project Path="../BlazorWebAssemblyStandalone/BlazorWebAssemblyStandalone.csproj" Id="b1f6a4ed-0724-4d1b-a38b-edfce19fed81" />
   <Project Path="BlazorBasics.csproj" />
 </Solution>

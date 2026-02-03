@@ -1,4 +1,5 @@
 ﻿
+@inject IJSRuntime _iJSRuntime;
 
 <div>
     <div class="alert alert-info">
@@ -41,6 +42,14 @@
 
     [Parameter]
     public EventCallback OnButtonClick { get; set; }
+
+    public async Task ToastrSuccess()
+    {
+        // showToastr is method
+        // first parameter -> sucess
+        // await _JSRuntime.InvokeVoidAsync("showToastr", "success", "Success Notification");
+        await _iJSRuntime.ToastrSuccess("Success Notification");
+    }
 
     // [Parameter]
     // public string? MessageForGrandChild { get; set; }

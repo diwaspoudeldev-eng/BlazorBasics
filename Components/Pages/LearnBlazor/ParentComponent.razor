@@ -10,7 +10,8 @@
 </_ChildComponent> *@
 
 <CascadingValue Value="@MessageForGrandChild">
-<_ChildComponent OnButtonClick="ShowMessage" Title="This Title is passed from Parent Component">
+    <CascadingValue Value="@LuckyNumber" Name="LuckyNumber">
+        <_ChildComponent OnButtonClick="ShowMessage" @ref="_ChildComponent" Title="This Title is passed from Parent Component">
     <ChildContent>Some Text between ChildContent from Parent Component</ChildContent>
     <SomeChildContent2>
        <p>This is more detailed content to ChildContent from Parent Component</p>
@@ -22,15 +23,26 @@
         </SomeChildContent2>
 </_ChildComponent>
 </CascadingValue>
+</CascadingValue>
 <p>@messageText</p>
+
+<button @onclick="CallChildAlert">Show Child Alert</button>
+
 
 @code {
 
     private string messageText = "";
     private string MessageForGrandChild = "Hello from Parent Component to Grand Child Component";
-
+    private string LuckyNumber = "7";
     private void ShowMessage()
     {
-        messageText = " Button inside child component was clicked";
+        messageText = "Button inside child component was clicked";
+    }
+
+    private _ChildComponent _ChildComponent;
+
+    private void CallChildAlert()
+    {
+        _ChildComponent.ToastrSuccess();
     }
 }
